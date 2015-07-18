@@ -180,12 +180,12 @@ def main():
 		error('Must provide input and profile arguments')
 	else:
 		if not os.path.isfile(args.input):
-			error('input file ' + str(args.input) + ' not found')
+			error('input file ' + str(os.path.abspath(args.input)) + ' not found')
 		if args.new:
 			if os.path.isfile(args.profile):
 				error(str(os.path.abspath(args.profile)) + ' already exists!')
 			elif not args.identifier:
-				error('--identifier required with --new argument')
+				error('Argument --identifier required with argument --new')
 			else:
 				newProfile = createProfile(args.input, args.identifier, args.profile)
 				newProfile = addItemsToProfile(args.input, newProfile)
