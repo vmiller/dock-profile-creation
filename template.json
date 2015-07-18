@@ -1,0 +1,11 @@
+{
+	"static-apps":{
+		"Safari": "/Applications/Safari.app",
+		},
+	"relative-others":{
+		"Downloads": "~/Downloads"
+		},
+	"static-others":{
+		"Applications": "/Applications"
+		}
+}
