@@ -20,7 +20,7 @@ def error(message):
 	''' Print an error message, then exit program '''
 	print '#' * 80
 	print '# Fatal Error:'
-	print '#      ' + message
+	print '#   ' + message
 	print '#' * 80
 	sys.exit()
 
@@ -132,7 +132,11 @@ def addItemsToProfile(applist, profile):
 	add them to an existing empty profile'''
 
 	with open(applist) as inputfile:
-		inputJSON = json.load(inputfile)
+		try:
+			inputJSON = json.load(inputfile)
+		except ValueError, e:
+			error('Problem with JSON : \n#      ' + str(e))
+
 	for category in inputJSON:
 		if category == "static-apps":
 			for app in inputJSON[category]:
