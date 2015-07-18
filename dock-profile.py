@@ -131,11 +131,14 @@ def addItemsToProfile(applist, profile):
 	'''function to load in items from the json input file and
 	add them to an existing empty profile'''
 
-	with open(applist) as inputfile:
-		try:
-			inputJSON = json.load(inputfile)
-		except ValueError, e:
-			error('Problem with JSON : \n#      ' + str(e))
+	try:
+		with open(applist) as inputfile:
+			try:
+				inputJSON = json.load(inputfile)
+			except ValueError, e:
+				error('Problem with JSON : \n#      ' + str(e))
+	except IOError, e:
+		error('Unable to load JSON file : \n#      ' + str(e))
 
 	for category in inputJSON:
 		if category == "static-apps":
