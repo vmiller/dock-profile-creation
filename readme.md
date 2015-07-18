@@ -8,4 +8,5 @@ __Usage__
 ```./dock-profile.py --new --input foo.json --profile com.company.dock.foo.mobileconfig --identifier com.company.dock.foo```
 
 * To edit an existing profile :
+
 ```./dock-profile.py --input foo.json --profile com.company.foo.mobileconfig```
