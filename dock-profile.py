@@ -192,7 +192,8 @@ def main():
 			else:
 				newProfile = createProfile(args.input, args.identifier, args.profile)
 				newProfile = addItemsToProfile(args.input, newProfile)
-				if not os.path.exists(os.path.dirname(args.profile)):
+				if not os.path.exists(os.path.dirname(args.profile)) and os.path.dirname(args.profile):
+					# If a path was specified that does not exist, create it
 					os.makedirs(os.path.dirname(args.profile))
 				try:
 					plistlib.writePlist(newProfile, args.profile)
