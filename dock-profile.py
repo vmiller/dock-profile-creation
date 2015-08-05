@@ -14,6 +14,7 @@ import uuid
 import json
 import os
 import sys
+from collections import OrderedDict
 
 
 def error(message):
@@ -134,7 +135,7 @@ def addItemsToProfile(applist, profile):
 	try:
 		with open(applist) as inputfile:
 			try:
-				inputJSON = json.load(inputfile)
+				inputJSON = json.load(inputfile, object_pairs_hook=OrderedDict)
 			except ValueError, e:
 				error('Problem with JSON : \n#      ' + str(e))
 	except IOError, e:
