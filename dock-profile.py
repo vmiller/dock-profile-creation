@@ -162,8 +162,6 @@ def updateProfile(applist, profile):
 	# Empty the existing items
 	profileDict['PayloadContent'][0]['static-apps'] = []
 	profileDict['PayloadContent'][0]['static-others'] = []
-	# Increment the payload version
-	profileDict['PayloadContent'][0]['PayloadVersion'] = profileDict['PayloadContent'][0]['PayloadVersion'] + 1
 	# Add the disired items to the dictionary
 	profileDict = addItemsToProfile(applist, profileDict)
 
